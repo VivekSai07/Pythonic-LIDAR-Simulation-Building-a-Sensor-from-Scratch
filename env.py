@@ -20,13 +20,14 @@ class buildEnvironment:
         self.Red = (255, 0, 0)
         self.white = (255, 255, 255)
     
+    # converts sensons angle-distance data to cartesian coordinates
     def AD2pos(self, distance, angle, robotPosition):
         x = distance * math.cos(angle) + robotPosition[0]
         y = distance * math.sin(angle) + robotPosition[1]
         return (int(x), int(y))
     
     def dataStorage(self, data):
-        print(len(self.pointCloud))
+        # print(len(self.pointCloud))
         for element in data:
             point = self.AD2pos(element[0], element[1], element[2])
             if point not in self.pointCloud:
